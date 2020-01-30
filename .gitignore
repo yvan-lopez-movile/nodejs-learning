@@ -1,1 +1,7 @@
+.idea
+/.idea
+.iws
+workspace.xml
+tasks.xml
 /notes-app/node_modules/
+/notes-app/node_modules
