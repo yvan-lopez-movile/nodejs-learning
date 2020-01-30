@@ -9,6 +9,7 @@
   "author": "Yvan Lopez",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.4.1",
     "validator": "^12.2.0"
   }
 }
