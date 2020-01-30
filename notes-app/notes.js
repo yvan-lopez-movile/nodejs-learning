@@ -24,6 +24,23 @@ const addNote = function (title, body) {
 
 }
 
+const removeNote = function (title) {
+    const notes = loadNotes();
+    if (notes.length > 0) {
+        const notesFound = notes.filter(function (note) {
+            return note.title !== title;
+        });
+
+        if (notesFound.length > 0) {
+            saveNotes(notesFound);
+            console.log('Note: ' + title + ' removed!');
+        }
+    } else {
+        console.log('Note: ' + title + ' not found');
+    }
+
+}
+
 const saveNotes = function (notes) {
     const dataJSON = JSON.stringify(notes);
     fs.writeFileSync('notes.json', dataJSON);
@@ -43,5 +60,6 @@ const loadNotes = function () {
 
 module.exports = {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote
 }
