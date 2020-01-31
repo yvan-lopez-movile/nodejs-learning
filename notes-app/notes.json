@@ -1,1 +1,14 @@
-[{"title":"List","body":"Pants, Shorts"},{"title":"List 2","body":"Pants, Shorts"}]
+[
+  {
+    "title": "List 1",
+    "body": "Pants, Shorts"
+  },
+  {
+    "title": "List 2",
+    "body": "Pants, Shorts"
+  },
+  {
+    "title": "List 3",
+    "body": "Tshirts, Sandals"
+  }
+]
