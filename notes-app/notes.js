@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 
 const getNotes = function () {
     return 'Your notes...'
@@ -17,9 +18,9 @@ const addNote = function (title, body) {
         });
 
         saveNotes(notes);
-        console.log("New note addedd!");
+        console.log(chalk.green.inverse("New note addedd!"));
     } else {
-        console.log('Note title taken!');
+        console.log(chalk.red.inverse('Note title taken!'));
     }
 
 }
@@ -33,10 +34,15 @@ const removeNote = function (title) {
 
         if (notesFound.length > 0) {
             saveNotes(notesFound);
-            console.log('Note: ' + title + ' removed!');
+            const msg = 'Note removed!';
+            console.log(chalk.bgGreen(msg));
+        } else {
+            const msg = 'No note found!';
+            console.log(chalk.bgRed(msg));
         }
     } else {
-        console.log('Note: ' + title + ' not found');
+        const msg = 'Notes empty!';
+        console.log(chalk.bgRed(msg));
     }
 
 }
