@@ -5,3 +5,5 @@ workspace.xml
 tasks.xml
 /notes-app/node_modules/
 /notes-app/node_modules
+/weather-app/node_modules/
+/weather-app/node_modules
