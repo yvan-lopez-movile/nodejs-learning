@@ -14,10 +14,14 @@ const forecast = (latitude, longitude, callback) => {
             const temperature = currently.temperature;
             const rain = currently.precipProbability;
 
-            callback(undefined, body.daily.data[0].summary + ' Actualmente la temperatura es de: ' + temperature + ' ºC. Y Hay una probabilidad de ' + rain + '% que llueva.');
+            const max = body.daily.data[0].temperatureHigh
+            const min = body.daily.data[0].temperatureMin
+
+            callback(undefined, body.daily.data[0].summary + ' Actualmente la temperatura es de: ' + temperature + ' °C. Y Hay una probabilidad de ' + rain
+                + '% que llueva. Hoy hay una maxima de ' + max + ' °C' + ' y una minima de ' + min + ' °C');
         }
 
     });
-}
+};
 
 module.exports = forecast;
