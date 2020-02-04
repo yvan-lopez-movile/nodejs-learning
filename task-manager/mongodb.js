@@ -5,11 +5,6 @@ const {MongoClient, ObjectID} = require('mongodb')
 const connectionURL = 'mongodb://127.0.0.1:27017'
 const databaseName = 'task-manager'
 
-const id = new ObjectID()
-console.log(id.id.length)
-console.log(id.toHexString())
-// console.log(id.getTimestamp())
-
 MongoClient.connect(connectionURL, {useNewUrlParser: true, useUnifiedTopology: true},
     (error, client) => {
         if (error) {
@@ -18,54 +13,35 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true, useUnifiedTopology: t
 
         const db = client.db(databaseName)
 
-        // db.collection('users').insertOne({
-        //     _id: id,
-        //     name: 'Anthony',
-        //     age: 36
-        // }, (error, result) => {
+        // db.collection('users').findOne({_id: new ObjectID('5e39a6eaf8c0c03ca0425129')}, (error, user) => {
         //     if (error) {
-        //         return console.log('Unable to insert user!')
+        //         console.log('Unable to fetch')
         //     }
         //
-        //     console.log(result.ops)
+        //     console.log(user)
         // })
 
-        // db.collection('users').insertMany([
-        //     {
-        //         name: 'Ben',
-        //         age: 7
-        //     },
-        //     {
-        //         name: 'Fausto',
-        //         age: 1
-        //     }
-        // ], (error, result) => {
-        //     if (error) {
-        //         return console.log('Unable to insert documents!')
-        //     }
+        // db.collection('users').find({age: 7}).toArray((error, users) => {
+        //     console.log(users)
+        // })
         //
-        //     console.log(result.ops)
+        // db.collection('users').find({age: 7}).count((error, q) => {
+        //     console.log(q)
         // })
 
-        // db.collection('tasks').insertMany([
-        //     {
-        //         description: 'tarea 1',
-        //         completed: true
-        //     },
-        //     {
-        //         description: 'tarea 2',
-        //         completed: true
-        //     },
-        //     {
-        //         description: 'tarea 3',
-        //         completed: false
-        //     }
-        // ], (error, result) => {
-        //     if (error) {
-        //         return console.log('Unable to insert tasks!')
-        //     }
-        //
-        //     console.log(result.ops)
-        // })
+        db.collection('tasks').findOne({_id: new ObjectID('5e39ad3abf0cd83ed8669385')}, (error, task) => {
+            if (error) {
+                console.log('Unable to fetch')
+            }
+            console.log(task)
+        })
+
+        db.collection('tasks').find({completed: false}).toArray((error, tasks) => {
+            if (error) {
+                console.log('Unable to fetch')
+            }
+
+            console.log(tasks)
+        })
 
     })
