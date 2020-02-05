@@ -29,5 +29,4 @@ MongoClient.connect(connectionURL, {useNewUrlParser: true, useUnifiedTopology: t
             console.log(error)
         })
 
-
     })
