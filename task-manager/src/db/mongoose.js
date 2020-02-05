@@ -28,12 +28,9 @@ const User = mongoose.model('User', {
         type: String,
         required: true,
         trim: true,
+        minlength: 7,
         validate(value) {
-            if (value.length < 7) {
-                throw new Error('Password must be greater than 6 characters')
-            }
-
-            if (value.includes('password')) {
+            if (value.toLowerCase().includes('password')) {
                 throw new Error('The password shouldn\'t contain the "password" word')
             }
         }
@@ -49,34 +46,36 @@ const User = mongoose.model('User', {
     }
 })
 
-const me = new User({
-    name: '   Benji    ',
-    email: 'BenjI@MAIL.COM   ',
-    password: 'uno'//'unpassword'
-})
-
-me.save().then((me) => {
-    console.log(me)
-}).catch((error) => {
-    console.log('Error!', error)
-})
-
-const Task = mongoose.model('Task', {
-    description: {
-        type: String
-    },
-    completed: {
-        type: Boolean
-    }
-})
-//
-// const task = new Task({
-//     description: 'Clean the house',
-//     completed: true
+// const me = new User({
+//     name: '   Benji    ',
+//     email: 'BenjI@MAIL.COM   ',
+//     password: 'myclave123'//'unpassword'
 // })
 //
-// task.save().then((taskResult) => {
-//     console.log(taskResult)
+// me.save().then((me) => {
+//     console.log(me)
 // }).catch((error) => {
 //     console.log('Error!', error)
 // })
+
+const Task = mongoose.model('Task', {
+    description: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    completed: {
+        type: Boolean,
+        default: false
+    }
+})
+
+const task = new Task({
+    description: 'Wake up early'
+})
+
+task.save().then((taskResult) => {
+    console.log(taskResult)
+}).catch((error) => {
+    console.log('Error!', error)
+})
