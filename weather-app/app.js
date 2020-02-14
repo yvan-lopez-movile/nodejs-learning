@@ -2,6 +2,7 @@ const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
 const userArg = process.argv[2];
+
 if (!userArg) {
     console.log('Address was not provided.');
 } else {
