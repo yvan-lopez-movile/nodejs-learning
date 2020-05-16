@@ -1,11 +1,11 @@
-const fs = require('fs');
+const fs = require('fs')
 
-const jsonBuf = fs.readFileSync('1-json.json');
-const jsonData = jsonBuf.toString();
+const dataBuffer = fs.readFileSync('1-json.json')
+const dataJSON = dataBuffer.toString()
+const user = JSON.parse(dataJSON)
 
-const dataObj = JSON.parse(jsonData);
-dataObj.name = 'Yvan';
-dataObj.age = '37';
+user.name = 'Gunther'
+user.age = 54
 
-const newJsonData = JSON.stringify(dataObj);
-fs.writeFileSync('1-json.json', newJsonData);
+const userJSON = JSON.stringify(user)
+fs.writeFileSync('1-json.json', userJSON)
