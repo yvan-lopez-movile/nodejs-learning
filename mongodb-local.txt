@@ -1,1 +1,0 @@
-D:\Servers\mongodb\bin\mongod.exe --dbpath=D:\Servers\mongodb-data
