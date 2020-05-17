@@ -21,10 +21,12 @@ const upload = multer({
         cb(undefined, true)
     }
 })
+
 app.post('/upload', upload.single('upload'), (req, res) => {
     res.send()
+}, (error, req, res, next) => {
+    res.status(404).send({ error: error.message })
 })
-
 
 app.use(express.json())
 app.use(userRouter)
