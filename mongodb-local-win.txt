@@ -1,2 +1,5 @@
 D:\Servers\mongodb\bin\mongod.exe --dbpath=D:\Servers\mongodb-data
 /d/Servers/mongodb/bin/mongod --dbpath /d/Servers/mongodb-data/
+
+cloud atlas mongo
+taskapp=noQlFxXEL7AmiSBu
