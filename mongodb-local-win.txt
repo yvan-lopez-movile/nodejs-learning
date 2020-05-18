@@ -3,3 +3,7 @@ D:\Servers\mongodb\bin\mongod.exe --dbpath=D:\Servers\mongodb-data
 
 cloud atlas mongo
 taskapp=noQlFxXEL7AmiSBu
+
+https://cloud.mongodb.com/v2/5ec1c7986564e0236e7b9582#clusters
+
+heroku config:set MONGODB_URL=mongodb+srv://taskapp:noQlFxXEL7AmiSBu@cluster0-gz3fn.mongodb.net/test?retryWrites=true&w=majority
