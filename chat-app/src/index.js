@@ -22,9 +22,14 @@ io.on('connection', (socket) => {
 
     const msg = 'Welcome!'
     socket.emit('welcomeMsg', msg)
+    socket.broadcast.emit('message', 'A new user has joined!')
 
     socket.on('sendMessage', (sendMessage) => {
         io.emit('sendMessage', sendMessage)
+    })
+
+    socket.on('disconnect', () => {
+        io.emit('A user has left!')
     })
 })
 
