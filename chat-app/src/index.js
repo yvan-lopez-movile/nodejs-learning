@@ -20,6 +20,7 @@ let count = 0
 io.on('connection', (socket) => {
     console.log('New websocket connection')
 
+    // send msg
     const msg = 'Welcome!'
     socket.emit('welcomeMsg', msg)
     socket.broadcast.emit('message', 'A new user has joined!')
@@ -30,6 +31,11 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         io.emit('A user has left!')
+    })
+
+    socket.on('sendLocation', (location) => {
+        console.log(location)
+        io.emit('sendLocation', `https://google.com/maps?q=${location.latitude},${location.longitude}`);
     })
 })
 

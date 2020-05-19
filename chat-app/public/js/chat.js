@@ -11,3 +11,22 @@ document.querySelector('form').addEventListener('submit', (e) => {
 
     socket.emit('sendMessage', msg)
 })
+
+document.querySelector('#sendLocation').addEventListener('click', ()=>{
+    if(!navigator.geolocation) {
+        return alert('Geolocation is not supported by your browser.')
+    }
+
+    navigator.geolocation.getCurrentPosition((position) =>{
+        const location = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        }
+
+        socket.emit('sendLocation', location)
+    })
+})
+
+socket.on('sendLocation', (msg) => {
+    console.log(msg)
+})
