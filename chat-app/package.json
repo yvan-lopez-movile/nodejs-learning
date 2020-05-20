@@ -1,27 +1,20 @@
 {
   "name": "chat-app",
   "version": "1.0.0",
-  "description": "This is a chat application.",
-  "main": "src/index.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
-  "keywords": [
-    "chat",
-    "app"
-  ],
-  "author": "Yvan Lopez",
+  "author": "",
   "license": "ISC",
-  "engines": {
-    "node": "12"
-  },
   "dependencies": {
     "bad-words": "^3.0.3",
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^1.19.4"
   }
 }
